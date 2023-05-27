@@ -29,6 +29,11 @@ class Point {
         this.#_y = value;
     }
 
+    distanceTo(otherPoint, fractionDigits = 2) {
+        if (!(otherPoint instanceof Point)) return NaN;
+        return Math.hypot(this.#_x - otherPoint.x, this.#_y - otherPoint.y).toFixed(fractionDigits);
+    }
+
     toString() {
         return `(${this.#_x}; ${this.#_y})`;
     }
