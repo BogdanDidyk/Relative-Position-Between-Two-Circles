@@ -38,3 +38,35 @@ class Point {
         return `(${this.#_x}; ${this.#_y})`;
     }
 }
+
+class Circle {
+    #_centerPoint;
+    #_radius;
+
+    constructor(centerPoint, radius) {
+        this.#centerPoint = centerPoint;
+        this.#radius = radius;
+    }
+
+    get centerPoint() {
+        return this.#_centerPoint;
+    }
+
+    set #centerPoint(value) {
+        if (!(value instanceof Point)) value = new Point(0, 0);
+        this.#_centerPoint = value;
+    }
+
+    get radius() {
+        return this.#_radius;
+    }
+
+    set #radius(value) {
+        if (!Number.isPositive(value)) value = 0;
+        this.#_radius = value;
+    }
+
+    toString() {
+        return `{${this.#_centerPoint}; R = ${this.#_radius}}`;
+    }
+}
