@@ -70,3 +70,7 @@ class Circle {
         return `{${this.#_centerPoint}; R = ${this.#_radius}}`;
     }
 }
+
+class RelativePositionOfFigures {
+
+}
