@@ -72,5 +72,11 @@ class Circle {
 }
 
 class RelativePositionOfFigures {
-
+    static twoPoints(point1, point2) {
+        if (!(point1 instanceof Point) || !(point2 instanceof Point))
+            throw new Error("One or two input parameters isn't point!");
+    
+        if (point1.x == point2.x && point1.y == point2.y) return "Two points are the same";
+        else return "Two points are different";
+    }
 }
