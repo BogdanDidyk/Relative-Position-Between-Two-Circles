@@ -79,4 +79,14 @@ class RelativePositionOfFigures {
         if (point1.x == point2.x && point1.y == point2.y) return "Two points are the same";
         else return "Two points are different";
     }
+
+    static pointToCircle(point, circle) {
+        if (!(point instanceof Point) || !(circle instanceof Circle))
+            throw new Error("First input parameter isn't point or second parameter isn't circle!");
+    
+        const distance = point.distanceTo(circle.centerPoint);
+        if (distance == circle.radius) return "Point lies on the circle";
+        else if (distance < circle.radius) return "Point lies inside the circle";
+        else return "Point lies outside the circle";
+    }
 }
