@@ -89,4 +89,17 @@ class RelativePositionOfFigures {
         else if (distance < circle.radius) return "Point lies inside the circle";
         else return "Point lies outside the circle";
     }
+    
+    static twoCircles(circle1, circle2) {
+        if (!(circle1 instanceof Circle) || !(circle2 instanceof Circle))
+            throw new Error("One or two input parameters isn't circle!");
+    
+        const distance = circle1.centerPoint.distanceTo(circle2.centerPoint);
+        if (distance == 0 && circle1.radius == circle2.radius) return "Two circles are the same";
+        else if (distance == circle1.radius + circle2.radius) return "Two circles are touching externally";
+        else if (distance == Math.abs(circle1.radius - circle2.radius)) return "Two circles are touching internally";
+        else if (distance < Math.abs(circle1.radius - circle2.radius)) return "One circle lying inside other";
+        else if (distance > circle1.radius + circle2.radius) return "Two circles are lying outside each other"; 
+        else return "Two Circles intersects at two points";
+    }
 }
