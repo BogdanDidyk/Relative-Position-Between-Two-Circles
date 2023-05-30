@@ -100,6 +100,30 @@ class RelativePositionOfFigures {
         else if (distance == Math.abs(circle1.radius - circle2.radius)) return "Two circles are touching internally";
         else if (distance < Math.abs(circle1.radius - circle2.radius)) return "One circle lying inside other";
         else if (distance > circle1.radius + circle2.radius) return "Two circles are lying outside each other"; 
-        else return "Two Circles intersects at two points";
+        else return "Two circles intersects at two points";
     }
 }
+
+const p1 = new Point(3, 3);
+const p2 = new Point(3, 3);
+const p3 = new Point(3, 3.05);
+const c1 = new Circle(new Point(0, 3.05), 3);
+const c2 = new Circle(new Point(2, 2), 2);
+const c3 = new Circle(new Point(0.5, 1), 1);
+const c4 = new Circle(new Point(0, 7.05), 1);
+const c5 = new Circle(new Point(2, 2.5), 1.5);
+const c6 = new Circle(new Point(2, 2), 1.5);
+
+console.log(`${p1.toString()} to ${p2.toString()} => ${RelativePositionOfFigures.twoPoints(p1, p2)}`);
+console.log(`${p1.toString()} to ${p3.toString()} => ${RelativePositionOfFigures.twoPoints(p1, p3)}`);
+console.log("");
+console.log(`${p3.toString()} to ${c1.toString()} => ${RelativePositionOfFigures.pointToCircle(p3, c1)}`);
+console.log(`${p1.toString()} to ${c2.toString()} => ${RelativePositionOfFigures.pointToCircle(p1, c2)}`);
+console.log(`${p2.toString()} to ${c3.toString()} => ${RelativePositionOfFigures.pointToCircle(p2, c3)}`);
+console.log("");
+console.log(`${c1.toString()} to ${c1.toString()} => ${RelativePositionOfFigures.twoCircles(c1, c1)}`);
+console.log(`${c1.toString()} to ${c4.toString()} => ${RelativePositionOfFigures.twoCircles(c1, c4)}`);
+console.log(`${c2.toString()} to ${c5.toString()} => ${RelativePositionOfFigures.twoCircles(c2, c5)}`);
+console.log(`${c2.toString()} to ${c6.toString()} => ${RelativePositionOfFigures.twoCircles(c2, c6)}`);
+console.log(`${c4.toString()} to ${c6.toString()} => ${RelativePositionOfFigures.twoCircles(c4, c6)}`);
+console.log(`${c1.toString()} to ${c2.toString()} => ${RelativePositionOfFigures.twoCircles(c1, c2)}`);
